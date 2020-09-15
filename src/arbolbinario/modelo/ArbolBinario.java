@@ -266,4 +266,59 @@ public class ArbolBinario {
         }
         return r;
     }
+    
+    public ArrayList imprimirNivel(){
+         ArrayList l = new ArrayList();
+         if (raiz !=null){
+        String[] niveles = new String [raiz.obtenerAlturaNodo() + 1];
+        imprimirNivel(raiz, 0, niveles);
+        for (int i = 0; i < niveles.length; i++) {
+            l.add(niveles[i] + "");            
+        }
+         }
+        return l;
+    }
+    public void imprimirNivel(Nodo pivote, int nivel2, String[] niveles){
+        if (pivote != null){
+        niveles[nivel2] = pivote.getDato() +", "+ ((niveles[nivel2] != null) ? niveles[nivel2] : "");
+            imprimirNivel(pivote.getDerecha(), nivel2 + 1, niveles);
+            imprimirNivel(pivote.getIzquierda(), nivel2 + 1, niveles);
+        
+        }
+    }
+    
+     public void podar() {
+        podar(this.raiz);
+    }
+
+    private void podar(Nodo x) {
+        if (x == null) {
+            return;
+        }
+        if ((x.getIzquierda()).isHoja()) {
+            x.setIzquierda(null);
+        }
+        if ((x.getDerecha()).isHoja()) {
+            x.setDerecha(null);
+        }
+        podar(x.getIzquierda());
+        podar(x.getDerecha());
+    }
+    
+   public void productoValor(int mult){
+       this.producto(this.raiz, mult);
+   }
+    
+    private void producto(Nodo r, int mult){
+        if (r!= null){
+            producto(r.getIzquierda(),mult);
+            r.setDato(r.getDato()*mult);
+            producto(r.getDerecha(),mult);
+        }
+    }
+    
+        
+   
+    
+
 }
