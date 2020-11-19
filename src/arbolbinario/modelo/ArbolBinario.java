@@ -52,7 +52,7 @@ public class ArbolBinario {
                 }
             } else {
                 throw new ArbolBinarioException("No se puede repetir");
-            }
+            }  
         }
     }
     

@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author carloaiza
+ * @author karen 
  */
 public class ArbolBinarioAVL {
 
